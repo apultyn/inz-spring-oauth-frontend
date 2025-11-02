@@ -1,7 +1,18 @@
 import axios from "axios";
 import Keycloak from "keycloak-js";
 
-const API_BASE_URL = "http://localhost:8080/api";
+declare global {
+    interface Window {
+        env: {
+            API_BASE_URL: string;
+            KEYCLOAK_URL: string;
+            KEYCLOAK_REALM: string;
+            KEYCLOAK_CLIENT_ID: string;
+        };
+    }
+}
+
+const API_BASE_URL = window.env.API_BASE_URL;
 
 export const api = axios.create({
     baseURL: API_BASE_URL,
@@ -32,9 +43,9 @@ export const axiosInterceptor = (keycloak: Keycloak) => {
 };
 
 const keycloakConfig = {
-    url: "http://localhost:8443",
-    realm: "app-realm",
-    clientId: "react-app",
+    url: window.env.KEYCLOAK_URL,
+    realm: window.env.KEYCLOAK_REALM,
+    clientId: window.env.KEYCLOAK_CLIENT_ID,
 };
 
 export const keycloak = new Keycloak(keycloakConfig);
