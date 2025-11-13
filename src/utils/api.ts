@@ -4,7 +4,6 @@ import Keycloak from "keycloak-js";
 declare global {
     interface Window {
         env: {
-            API_BASE_URL: string;
             KEYCLOAK_URL: string;
             KEYCLOAK_REALM: string;
             KEYCLOAK_CLIENT_ID: string;
@@ -12,7 +11,7 @@ declare global {
     }
 }
 
-const API_BASE_URL = window.env.API_BASE_URL;
+const API_BASE_URL = "/api";
 
 export const api = axios.create({
     baseURL: API_BASE_URL,
