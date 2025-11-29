@@ -15,7 +15,7 @@ export default function MainPage() {
     useEffect(() => {
         const fetchBooks = async (searchString = "") => {
             try {
-                const response = await api.get("/books", {
+                const response = await api.get("/books/", {
                     params: { searchString },
                 });
                 if (response.data) {

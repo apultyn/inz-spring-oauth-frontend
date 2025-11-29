@@ -35,7 +35,7 @@ export default function ReviewComponent({
 
     const fetchReview = useCallback(async () => {
         try {
-            const response = await api.get<Review>(`/reviews/${reviewId}`);
+            const response = await api.get<Review>(`/reviews/${reviewId}/`);
             setReview(response.data);
         } catch (error) {
             console.error(error);
@@ -53,7 +53,7 @@ export default function ReviewComponent({
         setIsSubmitting(true);
         try {
             const req: ReviewUpdateReq = { stars, comment };
-            await api.patch(`/reviews/${reviewId}`, req);
+            await api.patch(`/reviews/${reviewId}/`, req);
             setIsEditing(false);
             setReview({ ...review, stars, comment });
             fetchBook();

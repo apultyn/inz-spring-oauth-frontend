@@ -48,7 +48,7 @@ export default function NewReview({ bookId, setIsNewReview }: NewReviewProps) {
                 stars,
                 comment,
             };
-            await api.post(`/reviews`, req);
+            await api.post(`/reviews/`, req);
             setIsNewReview(false);
         } catch (error) {
             if (

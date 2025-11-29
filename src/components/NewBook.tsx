@@ -21,7 +21,7 @@ export default function NewBook({ setIsNewBook }: NewBookProps) {
         setIsSubmitting(true);
         try {
             const req: BookCreateReq = { author, title };
-            await api.post("/books", req);
+            await api.post("/books/", req);
             setIsNewBook(false);
         } catch (error) {
             if (

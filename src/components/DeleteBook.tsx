@@ -29,7 +29,7 @@ export default function DeleteBook({
         }
         setIsSubmitting(true);
         try {
-            await api.delete(`/books/${bookId}`);
+            await api.delete(`/books/${bookId}/`);
             navigate("/");
         } catch (error) {
             if (axios.isAxiosError(error) && error.response) {

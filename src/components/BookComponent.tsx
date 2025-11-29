@@ -10,7 +10,7 @@ export default function BookComponent({ book }: IBookComponent) {
     return (
         <article
             className="rounded-lg border bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
-            onClick={() => navigate(`/book/${book.id}`)}
+            onClick={() => navigate(`/book/${book.id}/`)}
         >
             <h3 className="text-lg font-semibold text-gray-800">
                 {book.title}

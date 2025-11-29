@@ -26,7 +26,7 @@ export default function DeleteReview({
         }
         setIsSubmitting(true);
         try {
-            await api.delete(`/reviews/${review.id}`);
+            await api.delete(`/reviews/${review.id}/`);
             fetchBook();
             setShowConfirm(false);
         } catch (e) {
